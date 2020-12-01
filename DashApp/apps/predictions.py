@@ -13,7 +13,7 @@ import pandas as pd
 import pathlib
 import pickle
 import dash
-
+from sklearn.preprocessing import StandardScaler
 # import our app
 from app import app
 
