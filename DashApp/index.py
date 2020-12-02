@@ -10,7 +10,7 @@ from app import app
 from app import server
 
 # Connect to any other app pages from apps folder
-from apps import predictions, annual
+from apps import predictions, annual, about
 
 
 app.layout = html.Div([
@@ -22,15 +22,12 @@ app.layout = html.Div([
                                     children=[
                                         html.Ul(className='navbar-nav mr-auto',
                                                 children=[
-                                                    html.Li(
-                                                        dcc.Link(
+                                                    html.Li(dcc.Link(
                                                             'NYPD Complaints By Year', className='nav-link', href='/apps/annual'), className='nav-item',),
                                                     html.Li(dcc.Link(
                                                         'Machine Learning Model', className='nav-link', href='/apps/predictions', ), className='nav-item'),
                                                     html.Li(dcc.Link(
-                                                        'About', className='nav-link', href='/apps/about',),
-                                                        className='nav-item'
-                                                    )
+                                                        'About', className='nav-link', href='/apps/about', ), className='nav-item')
                                                 ]
 
                                                 )
@@ -67,8 +64,8 @@ def display_page(pathname):
         return annual.layout
     elif pathname == '/apps/predictions':
         return predictions.layout
-    # elif pathname == '/apps/about':
-    #     return about.layout
+    elif pathname == '/apps/about':
+        return about.layout
     else:
         return home_layout
 
